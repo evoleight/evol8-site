@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Root colors */
         :root {
             --charcoal-black: #191919;
             --gold-accent: #D4AF37;
@@ -197,11 +196,6 @@
             border-radius: 8px;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        
-        .color-box:hover {
-            transform: scale(1.1);
         }
         
         .color-box:after {
@@ -331,188 +325,262 @@
         
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
         }
         
-        .footer-logo img {
-            width: 150px;
-        }
-        
-        .footer-logo h2 {
-            font-size: 2rem;
+        .footer-col h4 {
             color: var(--gold-accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         
-        .footer-nav ul {
+        .footer-links {
             list-style: none;
         }
         
-        .footer-nav ul li {
+        .footer-links li {
             margin-bottom: 10px;
         }
         
-        .footer-nav ul li a {
+        .footer-links a {
             color: var(--neutral-gray);
-            font-size: 14px;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         
-        .footer-nav ul li a:hover {
+        .footer-links a:hover {
             color: var(--gold-accent);
         }
         
-        .social-links ul {
-            list-style: none;
+        .social-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .social-links ul li {
-            margin-right: 20px;
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--deep-slate);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
         
-        .social-links ul li a {
+        .social-icon:hover {
+            background-color: var(--gold-accent);
+            color: var(--charcoal-black);
+        }
+        
+        .copyright {
+            margin-top: 60px;
+            text-align: center;
             color: var(--neutral-gray);
-            font-size: 18px;
-            text-decoration: none;
+            font-size: 0.9rem;
         }
         
-        .social-links ul li a:hover {
-            color: var(--gold-accent);
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            nav {
+                display: none; /* In a real site, add a mobile menu */
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
         }
-        
     </style>
 </head>
 <body>
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <div class="logo">
-                <img src="logo.png" alt="Evol8 Logo" />
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Pillars</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Evolve Your Everyday with Evol8</h1>
-                <p class="hero-tagline">Discover premium tech accessories designed to elevate your modern life.</p>
-                <a href="#" class="btn">Shop Now</a>
-            </div>
-        </section>
-
-        <!-- Brand Section -->
-        <section class="section brand-section">
-            <h2 class="section-title">Our Brand's Essence</h2>
+    <header class="container">
+        <img src="assets/logo.png" alt="Evol8 Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#brand">Brand</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#pillars">Philosophy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="assets/logo.png" alt="Evol8 Logo" class="hero-logo" />
+            <h1>Evolve Your <span class="gold-text">Everyday</span></h1>
+            <p class="hero-tagline">Smart. Sleek. Essential. Where form meets function and flows into your lifestyle.</p>
+            <a href="#products" class="btn">Discover Our Products</a>
+        </div>
+    </section>
+    
+    <section id="brand" class="section brand-section">
+        <div class="container">
+            <h2 class="section-title">Our <span class="gold-text">Brand</span></h2>
             <div class="brand-grid">
                 <div class="brand-card">
-                    <h3>Innovation</h3>
-                    <p>Embrace the latest in tech, designed to enhance your daily routines.</p>
+                    <h3>Brand Essence</h3>
+                    <p>Evol8 combines The Creator and The Explorer archetypes to bring you tools that elevate your everyday experiences.</p>
+                    <ul class="values-list">
+                        <li>Precision</li>
+                        <li>Functionality</li>
+                        <li>Aesthetics</li>
+                        <li>Progress</li>
+                        <li>Self-Mastery</li>
+                    </ul>
                 </div>
+                
                 <div class="brand-card">
-                    <h3>Quality</h3>
-                    <p>Premium craftsmanship with a commitment to lasting durability.</p>
+                    <h3>Visual Identity</h3>
+                    <p>Our colors reflect our commitment to elegance and excellence.</p>
+                    <div class="color-palette">
+                        <div class="color-box color-charcoal" data-color="#191919"></div>
+                        <div class="color-box color-gold" data-color="#D4AF37"></div>
+                        <div class="color-box color-offwhite" data-color="#EAEAEA"></div>
+                        <div class="color-box color-neutral" data-color="#B0B0B0"></div>
+                        <div class="color-box color-slate" data-color="#2E2E2E"></div>
+                    </div>
                 </div>
+                
                 <div class="brand-card">
-                    <h3>Sustainability</h3>
-                    <p>Eco-conscious design and production for a better tomorrow.</p>
+                    <h3>Our Voice</h3>
+                    <p>We speak with confidence and clarity. Every word serves a purpose, just like every feature of our products.</p>
+                    <p>Confident. Clean. Inspiring. Design-savvy. Progressive.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Core Values -->
-        <section class="section">
-            <h2 class="section-title">Our Core Values</h2>
-            <ul class="values-list">
-                <li>Integrity in every product</li>
-                <li>Innovation at the heart of design</li>
-                <li>Customer-centric approach</li>
-            </ul>
-        </section>
-
-        <!-- Color Palette -->
-        <section class="section">
-            <h2 class="section-title">Brand Color Palette</h2>
-            <div class="color-palette">
-                <div class="color-box color-charcoal" data-color="Charcoal Black"></div>
-                <div class="color-box color-gold" data-color="Gold Accent"></div>
-                <div class="color-box color-offwhite" data-color="Off-White Gray"></div>
-                <div class="color-box color-neutral" data-color="Neutral Gray"></div>
-                <div class="color-box color-slate" data-color="Slate"></div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section class="section products-section">
-            <h2 class="section-title">Featured Products</h2>
+        </div>
+    </section>
+    
+    <section id="products" class="section products-section">
+        <div class="container">
+            <h2 class="section-title">Our <span class="gold-text">Products</span></h2>
             <div class="product-gallery">
-                <!-- Individual Product Cards -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="product1.jpg" alt="Product 1">
+                        <img src="assets/Foldable_Charger_Mockup.png" alt="Evol8 Product">
                     </div>
                     <div class="product-info">
-                        <h3>Foldable MagSafe Charger</h3>
-                        <p>Price: 799,000 VND</p>
+                        <h3>Product Name</h3>
+                        <p class="product-price">$99.00</p>
+                        <a href="#" class="btn">View Details</a>
                     </div>
                 </div>
-
+                
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="product2.jpg" alt="Product 2">
+                        <img src="assets/Product_Collection_Mockup.png" alt="Evol8 Product">
                     </div>
                     <div class="product-info">
-                        <h3>AI-powered Smart Notebook</h3>
-                        <p>Price: 1,299,000 VND</p>
+                        <h3>Product Name</h3>
+                        <p class="product-price">$129.00</p>
+                        <a href="#" class="btn">View Details</a>
                     </div>
                 </div>
-
+                
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="product3.jpg" alt="Product 3">
+                        <img src="assets/Urban_Backpack_Mockup.png" alt="Evol8 Product">
                     </div>
                     <div class="product-info">
-                        <h3>Minimalist Tech Accessories</h3>
-                        <p>Price: 299,000 VND</p>
+                        <h3>Product Name</h3>
+                        <p class="product-price">$149.00</p>
+                        <a href="#" class="btn">View Details</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Footer Section -->
-        <footer class="footer">
+        </div>
+    </section>
+    
+    <section id="pillars" class="section pillars-section">
+        <div class="container">
+            <h2 class="section-title">Our <span class="gold-text">Philosophy</span></h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <h3>Elevate Your Setup</h3>
+                    <p>"Your desk is your dojo. Make it feel like one."</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>Form Meets Function</h3>
+                    <p>"Beautiful gear built to work as hard as you do."</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>Built for Creators</h3>
+                    <p>"Not just gadgets—tools for thinkers, makers, movers."</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>Made to Last</h3>
+                    <p>"Premium gear with purpose. Nothing more, nothing less."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact" class="footer">
+        <div class="container">
             <div class="footer-grid">
-                <div class="footer-logo">
-                    <h2>Evol8</h2>
+                <div class="footer-col">
+                    <img src="assets/logo.png" alt="Evol8 Logo" class="logo">
+                    <p style="margin-top: 20px; color: var(--neutral-gray);">Form x Function x Flow</p>
                 </div>
-                <div class="footer-nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#brand">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#pillars">Philosophy</a></li>
+                        <li><a href="#">Support</a></li>
                     </ul>
                 </div>
-                <div class="social-links">
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/evol8.vn">Instagram</a></li>
+                        <li><a href="https://facebook.com/evol8vn">Facebook</a></li>
+                        <li><a href="#">LinkedIn</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>info@evol8.vn</li>
+                        <li>Ho Chi Minh City, Vietnam</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Evol8. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
