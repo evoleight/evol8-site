@@ -46,6 +46,34 @@ header {
     z-index: 1000; /* Ensures header stays above other content */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: adds subtle shadow */
 }
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        padding: 15px 0; /* Reduce padding on mobile */
+    }
+
+    header .logo,
+    header .nav-links { /* Adjust elements inside the header */
+        margin-bottom: 10px; /* Space between logo and nav links */
+    }
+
+    header .logo {
+        font-size: 1.5rem; /* Smaller logo on mobile */
+    }
+
+    header .nav-links {
+        width: 100%; /* Ensure nav links take full width */
+        text-align: center; /* Center text for mobile */
+    }
+}
+
+/* Optional: For very small screens (like portrait mobile or small tablets) */
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.2rem; /* Even smaller logo on very small screens */
+    }
+}
 
 .logo {
     height: 60px;
