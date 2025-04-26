@@ -20,7 +20,7 @@ body {
     background-color: var(--charcoal-black);
     color: var(--off-white-gray);
     line-height: 1.6;
-    /* Remove padding-top since header is no longer fixed in original design */
+    padding-top: 90px; /* Adjust this value to match your header height */
 }
 
 .container {
@@ -37,9 +37,14 @@ header {
     align-items: center;
     /* Removing fixed positioning to match original design */
     background-color: transparent;
-    position: relative;
-    box-shadow: none;
     text-align: left; /* Override center alignment */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures header stays above other content */
+    background-color: var(--charcoal-black); /* Match your site background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: adds subtle shadow */
 }
 
 .logo {
