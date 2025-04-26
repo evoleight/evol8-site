@@ -40,10 +40,10 @@ header {
     text-align: left; /* Override center alignment */
     position: fixed;
     top: 0;
-    left: 50%;
-    width: 100%;
+    left: 50%; /* Move to the center */
+    transform: translateX(-50%); /* Offset by half of its width to center it */
+    width: 100%; /* Ensures the header takes full width of the page */
     z-index: 1000; /* Ensures header stays above other content */
-    background-color: var(--charcoal-black); /* Match your site background */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: adds subtle shadow */
 }
 
